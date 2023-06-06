@@ -1,3 +1,22 @@
+Thank you to @ChainDev for this video for the initial setup guide!
+https://www.youtube.com/watch?v=q-DEDaSnKvo&t=330s
+
+# Environment Setup Instructions
+
+- Clone the repo
+- npm install
+- npx env-enc set-pw  --> sets your password - if you forget it, you'll have to reset the vars in this file
+- npx env-enc set --> set the following 4 variables, instructions listed below in the ## Steps
+section (note that for Mumbai, alchemy has a free RPC url as of 6/6/23)
+GITHUB_API_TOKEN
+MUMBAI_RPC_URL
+PRIVATE_KEY
+OPENAI_KEY
+
+- npx hardhat functions-simulate
+
+
+
 # Chainlink Functions Starter Kit
 
 - [Chainlink Functions Starter Kit](#chainlink-functions-starter-kit)

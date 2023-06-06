@@ -7,27 +7,27 @@ if (!secrets.openaiKey) {
     }
 
 const openAIRequest = Functions.makeHttpRequest ({
-    url: 'https://api.openai.com/v1/completions',
+    url: 'https://api.openai.com/v1/images/generations',
     method: 'POST',
     headers: {
         'Authorization': `Bearer ${secrets.openaiKey}`
     },
     data: {
-        "model": "text-davinci-003",
         "prompt": prompt,
-        temperature: 1,
-        max_tokens: 7, }
+        n: 1,
+        size: "256x256", 
+        response_format: "url" },
+    timeout: 9000
     })
 
 
 const openAIResponse = await openAIRequest;
 
 console.log("raw response", openAIResponse);
+console.log("raw response data", openAIResponse.data.data);
 
-console.log("raw response data", openAIResponse.data.choices[0]);
+let openAIresponseUrl = openAIResponse.data.data[0].url;
 
+console.log("openAIresponseUrl: ", openAIresponseUrl);
 
-let result = openAIResponse.data.choices[0].text.replace(/\n/g, "").replace(/\./g, "").trim();
-console.log("Superhero Name: ", result);
-
-return Functions.encodeString(result);
+return Functions.encodeString(openAIresponseUrl);

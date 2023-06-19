@@ -15,6 +15,10 @@ OPENAI_KEY
 
 - npx hardhat functions-simulate
 
+To run the app:
+- npx env-enc set-pw
+- npx hardhat functions-simulate
+
 
 
 # Chainlink Functions Starter Kit
